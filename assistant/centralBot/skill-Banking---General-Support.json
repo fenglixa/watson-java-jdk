@@ -1,0 +1,124 @@
+{
+  "intents": [
+    {
+      "intent": "change_password",
+      "examples": [
+        {
+          "text": "change password"
+        },
+        {
+          "text": "help! i forgot my password"
+        },
+        {
+          "text": "i forgot my password"
+        },
+        {
+          "text": "i need to change my password"
+        },
+        {
+          "text": "reset password please"
+        }
+      ]
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "halp"
+        },
+        {
+          "text": "help me"
+        },
+        {
+          "text": "tell me some things you are able to do"
+        },
+        {
+          "text": "what can you do"
+        },
+        {
+          "text": "what can you help with"
+        }
+      ]
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_6_1627398287740",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "change password",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Reset your password via url: http://xxx.com"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#change_password",
+      "dialog_node": "node_6_1627398287740",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "Banking - General Support",
+  "language": "en",
+  "description": ""
+}

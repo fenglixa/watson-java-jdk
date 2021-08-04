@@ -1,0 +1,117 @@
+{
+  "intents": [
+    {
+      "intent": "credit_check",
+      "examples": [
+        {
+          "text": "can u check my credit"
+        },
+        {
+          "text": "check credit please"
+        },
+        {
+          "text": "credit check"
+        },
+        {
+          "text": "what is my credit"
+        },
+        {
+          "text": "what's my credit"
+        }
+      ]
+    },
+    {
+      "intent": "what_is_credit",
+      "examples": [
+        {
+          "text": "credit score meaning"
+        },
+        {
+          "text": "help, what is a credit score?"
+        },
+        {
+          "text": "what does a credit score mean"
+        },
+        {
+          "text": "what do i do with credit"
+        },
+        {
+          "text": "what is a credit score"
+        }
+      ]
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1509656545992"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Credit scores attempt to evaluate how likely a person is to pay money back on debt. It is used in applications for things like Home loans and credit cards."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#what_is_credit",
+      "dialog_node": "node_1_1509656499236",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Your credit score is: XXX"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#credit_check",
+      "dialog_node": "node_2_1509656545992",
+      "previous_sibling": "node_1_1509656499236"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "Banking - Credit Checking",
+  "language": "en",
+  "description": ""
+}

@@ -1,0 +1,30 @@
+{
+  "total_minutes_of_audio": 5.9185787598292032,
+  "audio": [
+    {
+      "duration": 38428750038146973,
+      "name": "audio1",
+      "details": {
+        "type": "audio",
+        "codec": "pcm_s16le",
+        "frequency": 16000
+      },
+      "status": "ok"
+    },
+    {
+      "duration": 3512718505859375,
+      "name": "audio2",
+      "details": {
+        "type": "archive",
+        "compression": "zip"
+      },
+      "status": "ok"
+    },
+    {
+      "duration": 0,
+      "name": "audio3",
+      "details": {},
+      "status": "being_processed"
+    }
+  ]
+}

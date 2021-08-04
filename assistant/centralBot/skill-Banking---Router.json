@@ -1,0 +1,212 @@
+{
+  "intents": [
+    {
+      "intent": "credit",
+      "examples": [
+        {
+          "text": "can u check my credit"
+        },
+        {
+          "text": "check credit please"
+        },
+        {
+          "text": "credit check"
+        },
+        {
+          "text": "credit score meaning"
+        },
+        {
+          "text": "help, what is a credit score?"
+        },
+        {
+          "text": "what does a credit score mean"
+        },
+        {
+          "text": "what do i do with credit"
+        },
+        {
+          "text": "what is a credit score"
+        },
+        {
+          "text": "what is my credit"
+        },
+        {
+          "text": "what's my credit"
+        }
+      ]
+    },
+    {
+      "intent": "general_support",
+      "examples": [
+        {
+          "text": "change password"
+        },
+        {
+          "text": "halp"
+        },
+        {
+          "text": "help! i forgot my password"
+        },
+        {
+          "text": "help me"
+        },
+        {
+          "text": "i forgot my password"
+        },
+        {
+          "text": "i need to change my password"
+        },
+        {
+          "text": "reset password please"
+        },
+        {
+          "text": "tell me some things you are able to do"
+        },
+        {
+          "text": "what can you do"
+        },
+        {
+          "text": "what can you help with"
+        }
+      ]
+    },
+    {
+      "intent": "loans",
+      "examples": [
+        {
+          "text": "can you give me the options for a loan"
+        },
+        {
+          "text": "get quote"
+        },
+        {
+          "text": "how much will a loan cost me"
+        },
+        {
+          "text": "i need a loan"
+        },
+        {
+          "text": "i need a quote for a loan"
+        },
+        {
+          "text": "what are my options for a loan"
+        },
+        {
+          "text": "what loan options do you have"
+        },
+        {
+          "text": "what loan rate options do u have"
+        },
+        {
+          "text": "what loans can you offer"
+        },
+        {
+          "text": "what's apr for 5k loan"
+        },
+        {
+          "text": "what's my apr for a 1k loan"
+        }
+      ]
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_8_1509569487477"
+    },
+    {
+      "type": "standard",
+      "title": "Loans",
+      "output": {},
+      "context": {
+        "skill_name": "Banking - Loans",
+        "workspace_id": "09b688d9-21a4-4fa7-b749-bc5ee7044805"
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#loans",
+      "dialog_node": "node_4_1509569329855",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": []
+        }
+      },
+      "parent": "node_4_1509569329855",
+      "context": {
+        "workspace_id": "0bbf78de-e226-46fd-9849-0f987564ae77"
+      },
+      "disabled": true,
+      "dialog_node": "node_6_1509569420858"
+    },
+    {
+      "type": "standard",
+      "title": "General",
+      "output": {},
+      "context": {
+        "skill_name": "Banking - General Support",
+        "workspace_id": "6f3b93c2-7a5c-4726-8d9c-f0774440ab24"
+      },
+      "conditions": "#general_support",
+      "dialog_node": "node_7_1509569447614",
+      "previous_sibling": "node_4_1509569329855"
+    },
+    {
+      "type": "standard",
+      "title": "Credit",
+      "output": {},
+      "context": {
+        "skill_name": "Banking - Credit Checking",
+        "workspace_id": "25b07cf2-4de9-415a-8d22-3e1490ab73be"
+      },
+      "conditions": "#credit",
+      "dialog_node": "node_8_1509569487477",
+      "previous_sibling": "node_7_1509569447614"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "Banking - Router",
+  "language": "en",
+  "description": ""
+}
