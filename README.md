@@ -9,6 +9,7 @@
 ## Deprecated builds
 [![Build Status](https://travis-ci.org/watson-developer-cloud/java-sdk.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/java-sdk)
 
+
 Java client library to use the [Watson APIs][wdc].
 
 <details>
