@@ -145,7 +145,7 @@ To find out which authentication to use, view the service credentials. You find 
 On this page, you should be able to see your credentials for accessing your service instance.
 
 In your code, you can use these values in the service constructor or with a method call after instantiating your service.
-
+ 
 ### Supplying credentials
 
 There are two ways to supply the credentials you found above to the SDK for authentication.
